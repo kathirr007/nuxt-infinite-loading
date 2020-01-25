@@ -1,5 +1,5 @@
 <template>
-  <v-card flat>
+  <v-card flat class="infinite-loader pa-3">
     <v-layout row wrap>
       <v-flex v-for="(title, index) in titles" :key="index">
         <v-card flat hover class="white pb-2 mb-1 pl-2">
@@ -13,8 +13,8 @@
     </v-layout>
     <infinite-loading
       v-if="titles.length"
-      spinner="spiral"
       @infinite="infiniteScroll"
+      spinner="spiral"
     ></infinite-loading>
   </v-card>
 </template>
@@ -66,8 +66,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .theme--light.v-card {
   background-color: #f5f5f5;
+  &.infinite-loader {
+    // height: calc(100vh - 300px);
+    height: 50vh;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: orange;
+  }
 }
 </style>

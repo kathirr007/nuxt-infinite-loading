@@ -13,3 +13,5 @@ export default {
   components: { posts }
 }
 </script>
+
+<style lang="scss"></style>
