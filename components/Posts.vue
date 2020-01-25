@@ -1,15 +1,17 @@
 <template>
   <v-card flat class="infinite-loader pa-3">
     <v-layout row wrap>
-      <v-flex v-for="(title, index) in titles" :key="index">
-        <v-card flat hover class="white pb-2 mb-1 pl-2">
-          <v-layout>
-            <v-flex xs10>
-              <div class="py-2">{{ title.body }}</div>
-            </v-flex>
-          </v-layout>
-        </v-card>
-      </v-flex>
+      <transition-group name="slideDown">
+        <v-flex v-for="title in titles" :key="title.id">
+          <v-card flat hover class="white pb-2 mb-1 pl-2">
+            <v-layout>
+              <v-flex xs10>
+                <div class="py-2">{{ title.body }}</div>
+              </v-flex>
+            </v-layout>
+          </v-card>
+        </v-flex>
+      </transition-group>
     </v-layout>
     <infinite-loading
       v-if="titles.length"
@@ -27,12 +29,13 @@ export default {
   data() {
     return {
       titles: [],
-      page: 1
+      page: 1,
+      start: 0
     }
   },
   computed: {
     url() {
-      return 'https://jsonplaceholder.typicode.com/posts?_page=' + this.page
+      return `https://jsonplaceholder.typicode.com/posts?_start=${this.start}&_limit=5`
     }
   },
   created() {
@@ -46,7 +49,8 @@ export default {
     },
     infiniteScroll($state) {
       setTimeout(() => {
-        this.page++
+        // this.page++
+        this.start = this.titles.length
         axios
           .get(this.url)
           .then((response) => {
@@ -76,5 +80,14 @@ export default {
     overflow-y: auto;
     background-color: orange;
   }
+}
+.slideDown-enter-active,
+.slideDown-leave-active {
+  transition: all 0.3s ease-in;
+}
+.slideDown-enter,
+.slideDown-leave-to {
+  opacity: 0;
+  transform: translateY(50px);
 }
 </style>
