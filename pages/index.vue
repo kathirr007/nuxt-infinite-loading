@@ -1,6 +1,9 @@
 <template>
   <v-flex>
-    <v-container fluid grid-list-lg class="mt-5">
+    <h2 class="white--text text-center pa-3">
+      Vue infinite loading implementation for Nuxt project
+    </h2>
+    <v-container fluid grid-list-lg>
       <posts />
     </v-container>
   </v-flex>
