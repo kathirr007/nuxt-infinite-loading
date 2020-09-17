@@ -5,38 +5,43 @@
         <v-flex v-for="title in titles" :key="title.id">
           <v-card flat hover class="white pb-2 mb-1 pl-2">
             <v-layout>
-              <v-flex xs10>
-                <div class="py-2">{{ title.body }}</div>
+              <v-flex xs12>
+                <div class="pa-2">{{ title.body }}</div>
               </v-flex>
             </v-layout>
           </v-card>
         </v-flex>
       </transition-group>
     </v-layout>
-    <infinite-loading
-      v-if="titles.length"
-      @infinite="infiniteScroll"
-      spinner="spiral"
-    ></infinite-loading>
+    <infinite-loading v-if="titles.length" @infinite="infiniteScroll">
+      <div slot="spinner">
+        <custom-spinner />
+      </div>
+    </infinite-loading>
   </v-card>
 </template>
 
 <script>
+import customSpinner from '@/components/customSpinner'
+
 import axios from 'axios'
 
 export default {
   name: 'Posts',
+  components: {
+    customSpinner,
+  },
   data() {
     return {
       titles: [],
       page: 1,
-      start: 0
+      start: 0,
     }
   },
   computed: {
     url() {
-      return `https://jsonplaceholder.typicode.com/posts?_start=${this.start}&_limit=5`
-    }
+      return `https://jsonplaceholder.typicode.com/posts?_start=${this.start}&_limit=10`
+    },
   },
   created() {
     this.fetchData()
@@ -65,14 +70,15 @@ export default {
             console.log(err)
           })
       }, 500)
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .theme--light.v-card {
   background-color: #f5f5f5;
+
   &.infinite-loader {
     // height: calc(100vh - 300px);
     height: 50vh;
@@ -81,10 +87,12 @@ export default {
     background-color: orange;
   }
 }
+
 .slideDown-enter-active,
 .slideDown-leave-active {
   transition: all 0.3s ease-in;
 }
+
 .slideDown-enter,
 .slideDown-leave-to {
   opacity: 0;

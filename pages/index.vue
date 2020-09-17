@@ -10,7 +10,7 @@
 import posts from '~/components/Posts.vue'
 
 export default {
-  components: { posts }
+  components: { posts },
 }
 </script>
 

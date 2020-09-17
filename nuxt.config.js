@@ -39,6 +39,14 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify'
   ],
+  /* 
+  ** eslint options
+  */
+  eslint: {
+    rules: {
+      "no-console": 0
+    }
+  },
   /*
    ** Nuxt.js modules
    */
