@@ -1,6 +1,6 @@
 <template>
   <div class="breeding-rhombus-spinner" :style="spinnerStyle">
-    <div v-for="(rs, index) in rhombusesStyles" :key="index" :style="rs" class="rhombus" :color="vuePalette4" :class="[`child-${index + 1}`, `vuePalette${index+1}`, index == 2 ? 'vuePalette7' : index == 4 ? 'vuePalette7' : '']"></div>
+    <div v-for="(rs, index) in rhombusesStyles" :key="index" :style="rs" class="rhombus" :color="'vuePalette4'" :class="[`child-${index + 1}`, `vuePalette${index+1}`, index == 2 ? 'vuePalette7' : index == 4 ? 'vuePalette7' : '']"></div>
     <div class="rhombus big" :style="bigRhombusStyle"></div>
   </div>
 </template>

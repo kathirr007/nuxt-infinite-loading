@@ -1,12 +1,12 @@
 <template>
   <v-card flat class="infinite-loader pa-3">
     <v-layout row wrap>
-      <transition-group name="slideDown">
-        <v-flex v-for="title in titles" :key="title.id">
-          <v-card flat class="pb-2 mb-1 pl-2">
+      <transition-group name="slideDown" tag="div" style="width: 100%;">
+        <v-flex v-for="(title, i) in titles" :key="title.id">
+          <v-card flat class="pb-2 mb-1 pl-2" :color="i+1 > 7 ? `vuePalette${i%7 + 1}` : `vuePalette${i+1}`">
             <v-layout>
               <v-flex xs12>
-                <div class="pa-2 brown--text text--darken-4">
+                <div class="pa-2" :class="`${i%7 + 1 == 7 ? 'vuePalette4--text' : 'teal--text text--darken-4'}`">
                   {{ title.body }}
                 </div>
               </v-flex>
@@ -97,10 +97,10 @@ export default {
 
     &.infinite-loader {
         // height: calc(100vh - 300px);
-        height: 50vh;
+        /* height: 50vh;
         overflow: hidden;
-        overflow-y: auto;
-        background-color: orange;
+        overflow-y: auto; */ // remove these comments to check for custom block heights
+        // background-color: orange;
     }
 }
 

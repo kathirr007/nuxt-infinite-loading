@@ -24,5 +24,6 @@ module.exports = {
     "vue/max-attributes-per-line": 0,
     "vue/no-unused-vars": 0,
     "vue/no-multi-spaces": 0,
+    "vue/html-closing-bracket-spacing": 0,
   }
 }
