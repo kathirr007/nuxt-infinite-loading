@@ -1,7 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
+<<<<<<< HEAD
 /logs
+=======
+logs
+>>>>>>> 19a86f348222e8107fc5fd5a554c53b091ef1aa8
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -79,11 +83,19 @@ dist
 
 # IDE / Editor
 .idea
+<<<<<<< HEAD
+=======
+.editorconfig
+>>>>>>> 19a86f348222e8107fc5fd5a554c53b091ef1aa8
 
 # Service worker
 sw.*
 
+<<<<<<< HEAD
 # macOS
+=======
+# Mac OSX
+>>>>>>> 19a86f348222e8107fc5fd5a554c53b091ef1aa8
 .DS_Store
 
 # Vim swap files
