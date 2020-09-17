@@ -88,11 +88,11 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
           vuePalette1: "#41b883",
-          vuePalette2: "#7bcdb7",
-          vuePalette3: "#a0ead6",
-          vuePalette4: "#bcfceb",
-          vuePalette5: "#87d6b1",
-          vuePalette6: "#58a2a4",
+          vuePalette2: "#79c4a2",
+          vuePalette3: "#a6d5c0",
+          vuePalette4: "#b9fff6",
+          vuePalette5: "#8fbcea",
+          vuePalette6: "#5a83ad",
           vuePalette7: "#35495e",
         }
       }
