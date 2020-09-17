@@ -1,5 +1,7 @@
 # Infinite-loading
 
+To check live version please checkout **[here](https://nuxt-infinite-loading.vercel.app/)**
+
 ## Build Setup
 
 ```bash
