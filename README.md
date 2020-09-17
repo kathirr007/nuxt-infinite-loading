@@ -1,5 +1,7 @@
 # Infinite-loading
 
+### Vue infinite loading implementation for Nuxt project
+
 To check live version please checkout **[here](https://nuxt-infinite-loading.vercel.app/)**
 
 ## Build Setup
